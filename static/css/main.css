@@ -1,0 +1,40 @@
+body, html {
+    margin-top: 50px;
+    font-size:120%;
+    font-family: Garamond;
+    color:white;
+
+
+}
+
+.content {
+    margin: 0 auto;
+    width: 400px;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    margin-top: 40px;
+    margin-left: 50px
+}
+
+#content {
+    width: 70%;
+}
