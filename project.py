@@ -34,6 +34,9 @@ def ytlist_of_urls():
         d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
     except Exception as e:
         logging.exception("Exception occurred")
+        f = open('log.txt', 'w')
+        f.write('An exceptional thing happed - %s' % e)
+        f.close()
     list_url=[]
     for i in range(len(d)-1):
         if list(d[i].keys())[0]=='videoRenderer':
