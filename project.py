@@ -29,7 +29,7 @@ def ytlist_of_urls():
     url_find=beauty.find_all("script")
     stdic=url_find[33].text
    
-    dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)))
+    dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
     d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
     list_url=[]
     for i in range(len(d)-1):
