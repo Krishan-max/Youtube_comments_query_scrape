@@ -24,13 +24,15 @@ def ytlist_of_urls():
     x="https://www.youtube.com/results?search_query="+search
 
     page = requests.get(x).text
+    try:
+        beauty=BeautifulSoup(page,"html.parser")
+        url_find=beauty.find_all("script")
+        stdic=url_find[33].text
 
-    beauty=BeautifulSoup(page,"html.parser")
-    url_find=beauty.find_all("script")
-    stdic=url_find[33].text
-   
-    dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
-    d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
+        dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
+        d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
+    except exception as e:
+        logging.exception("Exception occurred")
     list_url=[]
     for i in range(len(d)-1):
         if list(d[i].keys())[0]=='videoRenderer':
