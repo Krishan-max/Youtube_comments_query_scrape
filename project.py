@@ -20,7 +20,7 @@ def homePage():
 @app.route('/comments',methods=['POST','GET']) # route to show the review comments in a web UI
 @cross_origin()
 def ytlist_of_urls():
-    search=request.form["content"]
+    """search=request.form["content"]
     search=search.replace(" ","+")
     x="https://www.youtube.com/results?search_query="+search
 
@@ -35,8 +35,8 @@ def ytlist_of_urls():
     list_url=[]
     for i in range(len(d)-1):
         if list(d[i].keys())[0]=='videoRenderer':
-            list_url.append(d[i]['videoRenderer']['videoId'])
-    comment_list=ytcomments(list_url)
+            list_url.append(d[i]['videoRenderer']['videoId'])"""
+    comment_list=ytcomments(["W2hs7UIMfoE"])
     return render_template("results.html",comments=comment_list[0:len(comment_list)])
 def ytcomments(l):
     com_list=[]
