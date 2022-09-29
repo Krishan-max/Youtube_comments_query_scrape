@@ -1,5 +1,6 @@
 #Project to extract youtube comments from seached text and filter doubts of students
 import requests
+import logging
 from googleapiclient.discovery import build
 from flask import Flask, render_template, request,jsonify
 from flask_cors import CORS,cross_origin
@@ -31,7 +32,7 @@ def ytlist_of_urls():
 
         dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
         d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
-    except exception as e:
+    except Exception as e:
         logging.exception("Exception occurred")
     list_url=[]
     for i in range(len(d)-1):
