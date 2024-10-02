@@ -29,12 +29,12 @@ def ytlist_of_urls():
     beauty=BeautifulSoup(page,"html.parser")
     url_find=beauty.find_all("script")
     stdic = None
-for script in url_find:
-    if 'var ytInitialData' in script.text:
-        stdic = script.text
-        break
-    if stdic is None:
-        logging.error("Could not find the ytInitialData in the script tags.")
+    for script in url_find:
+        if 'var ytInitialData' in script.text:
+            stdic = script.text
+            break
+        if stdic is None:
+            logging.error("Could not find the ytInitialData in the script tags.")
 
     dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
     d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
