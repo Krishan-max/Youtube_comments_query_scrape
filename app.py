@@ -35,7 +35,6 @@ for script in url_find:
         break
     if stdic is None:
         logging.error("Could not find the ytInitialData in the script tags.")
-    return []
 
     dict_object = json.loads(re.search('var ytInitialData = (.+)[,;]{1}',str(stdic)).group(1))
     d=dict_object['contents']['twoColumnSearchResultsRenderer']['primaryContents']['sectionListRenderer']['contents'][0]['itemSectionRenderer']['contents']
