@@ -1,4 +1,4 @@
-from main.project import app  # Adjust this based on where your Flask app instance is defined
+from app import app  # Adjust this based on where your Flask app instance is defined
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))  # Default to 8000 if not set
