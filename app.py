@@ -25,7 +25,7 @@ def ytlist_of_urls():
     x="https://www.youtube.com/results?search_query="+search
 
     page = requests.get(x).text
-
+    print(page)
     beauty=BeautifulSoup(page,"html.parser")
     url_find=beauty.find_all("script")
     stdic = None
